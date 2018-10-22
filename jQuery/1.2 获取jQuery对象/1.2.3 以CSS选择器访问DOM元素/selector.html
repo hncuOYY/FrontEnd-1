@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li id="one"></li>
+        <li class="second"></li>
+        <li class="third"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <script src="../jquery-3.3.1.min.js"></script>
+    <script>
+        /*
+        #id, tagName, tagName[attribute], tagName[attribute=value]
+        tagName[attribute!=value], tagName[attribute^=value](开头)
+        tagName[attribute$=value](结尾), tagName[attribute*=value](包含)
+        .className, outerSelector innerSelector, parentSelector>childSelector
+        prevSelector+nextSelector(后面第一个), preSelector~siblingsSelector(后面所有)
+        selecotr1,selector2...selectorN, :root(根元素)
+        tagName[attributeFilter1][attributeFilter2], *(不常用)
+        */
+        $(":root").css("background-color", "pink");
+        $("#one").html("这是第一个li元素");
+        $("li[class=second]").html("这是第二个li元素");
+        $("li[class=third]~li").html("这些是第三个li元素后的所有li元素");
+    </script>   
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="dv"></div>
+    <div></div>
+
+    <script src="../jquery-3.3.1.min.js"></script>
+    <script>
+        // 获取所有div标签
+        $("div").html("这是一个div标签");
+
+        var dv = document.getElementById("dv");
+        $(dv).css("background-color", "red");
+
+        // 使用HTML字符串创建一个DOM对象, 并将其添加到body元素内
+        $("<input type='button' value='注册'/>").appendTo(document.body);
+
+        // 使用HTML字符串创建一个DOM对象, 并在创建时添加属性
+        $("<input>", {
+            type: "button",
+            value: "登录"
+        }).appendTo(document.body);
+    </script>   
+</body>
+</html>

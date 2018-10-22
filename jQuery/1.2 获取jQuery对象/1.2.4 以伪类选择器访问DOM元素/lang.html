@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div lang="en">hello</div>
+    <div lang="en-US">world</div>
+    <p lang="en">!</p>
+
+    <script src="..//jquery-3.3.1.min.js"></script>
+    <script>
+        // 访问所有lang属性值以en开头的元素
+        $(":lang(en)").css("border", "1px solid green");
+
+        // 访问lang属性以en开头的p元素
+        $("p:lang(en)").css("background-color", "grey");
+    </script>   
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="dv"></div>
+
+    <!-- 引入jQuery库 -->
+    <script src="../jquery-3.3.1.min.js"></script>
+    <script>
+        // $()函数其实是jQuery()函数的简化别名
+        var dv = $("#dv");
+        
+        /*
+        jQuery很多改变自身属性的方法的返回值都是对象本身
+        因可以连续多次调用改变自身属性的方法
+        */
+        dv.html("这是一个div标签")
+            .height(60)
+            .width(100)
+            .css("border", "1px solid black")
+            .css("background-color", "#ccc")
+            .css("padding", 20);
+    </script>   
+</body>
+</html>

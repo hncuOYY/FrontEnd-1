@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li>
+            <span></span>
+        </li>
+    </ul>
+    <script src="../jquery-3.3.1.min.js"></script>
+    <script>
+        /*
+        :first, :last, :lang(lang_code), :focus, :not(selector)
+        :even, :odd, :eq(index), :gt(index), :lt(index)
+        :animated, :contains(text), :empty, :has(selector)
+        */
+        $("ul>li:first").html("这是第一个li元素");
+        $("ul>li:not([id])").css("background-color", "#ccc");
+        $("ul>li:has(span)").append("这是最后一个li标签");
+    </script>   
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li id="last"></li>
+    </ul>
+
+    <script src="./jquery-3.3.1.min.js"></script>
+    <script>
+        /*
+        length, context, jquery, each(fn(index)), get(), get(index), index()      
+        */
+        // 获取ul中所有的li元素, 并迭代处理每个元素
+        $("ul>li").each(function(i) {
+            this.innerHTML = i;
+        });
+        
+        // 返回ul中li元素的个数
+        console.log($("ul>li").length); // 6
+
+        // jQuery对象->DOM对象
+        console.log($("ul>li").get(0).innerHTML);
+        console.log($("ul>li").get()[0].innerHTML);
+        
+        console.log($("ul>li").index($("#last")));
+    </script>   
+</body>
+</html>

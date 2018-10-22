@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li>
+            <span></span>
+            <span></span>
+        </li>
+        <li>
+            <span></span>
+        </li>
+    </ul>
+
+    <script src="../jquery-3.3.1.min.js"></script>
+    <script>
+        /*
+        :nth-child(index/even/odd/equation)
+        :nth-last-child(index/even/odd/equation)
+        :first-child
+        :last-child
+        :only-child()
+        */
+        // 访问父元素内的li元素且li元素还是父元素的第一个子元素
+        $("li:nth-child(1)").css("background-color", "#eee");
+        // 访问span元素且其父元素下仅包含该span元素
+        $("span:only-child").html("父元素中只有一个span元素");
+    </script>   
+</body>
+</html>

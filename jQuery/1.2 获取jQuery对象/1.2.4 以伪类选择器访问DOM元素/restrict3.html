@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <p></p>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <script src="../jquery-3.3.1.min.js"></script>
+    <script>
+        /*
+        :first-of-type
+        :last-of-type
+        :nth-of-type(index/even/odd/equation)
+        :nth-last-of-type(index/even/odd/equation)
+        :only-of-type
+        */
+        $("span:first-of-type").append("<b>这是第一个span元素</b>");
+        $("span:nth-last-of-type(-n + 3)").append("<b>这是最后三个span元素</b>");
+    </script>   
+</body>
+</html>
