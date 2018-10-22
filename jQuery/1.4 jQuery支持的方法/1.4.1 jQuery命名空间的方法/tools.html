@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script src="../jquery-3.3.1.min.js"></script>
+    <script>
+        /*
+        jQuery.support, jQuery.error(string), jQuery.globalEval(code)
+        jQuery.isArray(object), jQuery.isEmptyObject(object), jQuery.isFunction(obj)
+        jQuery.isNumeric(value), jQuery.isPlainObject(object), jQuery.isWindow(obj)
+        jQuery.isXMLDoc(node), jQuery.noop, jQuery.now()
+        
+        字符串,数组和对象相关工具方法
+        jQuery.trim(str)
+        jQuery.each(object, callback)
+        jQuery.extend(target, object1, [objectN])
+        jQuery.grep(array, callback, [invert])
+        jQuery.inArray(value, array)
+        jQuery.makeArray(obj)
+        jQuery.map(array, callback)
+        jQuery.merge(first, second)
+        jQuery.type(obj)
+        jQuery.parseJSON(string)
+        jQuery.parseXML(string)
+        jQuery.uniqueSort(array)
+        */
+        // 判断浏览器是否支持创建XMLHttpRequest
+        console.log($.support.ajax); // true
+
+        // 判断XMLHttpRequest是否有withCredentials
+        console.log($.support.cors);
+
+        // 去除字符串前后的空白
+        console.log($.trim("hello   ") + "world"); // helloworld
+    </script>   
+</body>
+</html>
