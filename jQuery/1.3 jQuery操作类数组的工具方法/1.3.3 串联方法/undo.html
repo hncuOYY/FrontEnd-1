@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li id="first">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li id="fourth">4</li>
+        <li>5</li>
+        <li id="last">6</li>
+    </ul>
+
+    <script src="../jquery-3.3.1.min.js"></script>   
+    <script>
+        /*
+        add(selector|elements|html|jQuery[, context]): 为原来的jQuery对象添加新的DOM元素
+        addBack(): 将查找之前的结果和查找之后的结果混合在一起
+        end(): 用于将jQuery对象恢复到上一次执行过滤,查找方法之前的状态
+        */
+        // 将id为first的元素和HTML字符串合并成一个jQuery对象
+        // 将两个元素插在body元素的最前面
+        $("#first").add("<b>新加的元素</b>").prependTo("body");
+
+        // 获取id为fourth的节点的下一个兄弟节点, 再将它们混合在一起
+        // 返回这两个节点的jQuery对象
+        $("#fourth").next().addBack().css("background-color", "pink");
+
+        // 先获取last节点的上一个节点, 使用end()方法重新获取之前的last节点
+        $("#last").prev().end().css("border", "1px solid green");
+    </script>
+</body>
+</html>

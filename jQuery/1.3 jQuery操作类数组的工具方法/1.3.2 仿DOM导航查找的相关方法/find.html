@@ -8,12 +8,12 @@
 </head>
 <body>
     <ul>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
+        <li>1</li>
+        <li id="second">2</li>
+        <li>3</li>
+        <li id="fourth">4</li>
+        <li>5</li>
+        <li>6</li>
     </ul>
 
     <script src="../jquery-3.3.1.min.js"></script>   
@@ -22,10 +22,20 @@
        children([selector]), closest(selector|jQuery|element)
        contents(), find(selector|element|jQuery), next([selector])
        nextAll([selector]), nextUntil([selector|element][, filter])
-       offsetParent(), parents([selector]), parentsUntil([selector|element][, filter])
+       offsetParent(), parent([selector]), parents([selector]), parentsUntil([selector|element][, filter])
        prev([selector]), preUntil([selector|element][, filter])
        siblings([selector])
        */
+        // 获取ul内的所有内容(包括节点和文本)
+        $("ul").contents().css("background-color", "pink");
+        // 获取第一个li元素下一个兄弟节点
+        $("ul>li:nth-of-type(1)").next().css("border", "1px solid #000");
+        // 获取id为second的节点后的所有兄弟节点, 直到遇到id为fourth的节点
+        $("ul>li:nth-of-type(2)").nextUntil("#fourth").css("font-size", "20px");
+        // 取出所有li元素的父元素
+        $("li").parent().each(function() {
+            alert($(this).html());
+        });
     </script>
 </body>
 </html>
