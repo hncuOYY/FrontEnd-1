@@ -7,8 +7,27 @@
     <title>Document</title>
 </head>
 <body>
+    <div id="dv1"></div>
+    <div id="dv2"></div>
+    <script src="../jquery-3.3.1.min.js"></script>
     <script>
-        
+        /*
+        在指定节点内插入新节点
+            append(content), append(function(index, html)), appendTo(selector)
+            prepend(content), prepend(function(index, html)), prepareTo(selector)
+        */
+        // 直接将一段HTML字符串添加到id为dv1的元素的内部的尾端
+        $("#dv1").append("<b>加粗<b>");
+
+        // 创建一个span元素
+        var span = document.createElement("span");
+        span.innerHTML = "这是一个span标签";
+
+        // 将一个DOM元素添加到id为dv1的元素的内部的顶端
+        $("#dv1").prepend(span);
+
+        // 将id为dv1的元素添加到id为dv2的元素内部的尾端
+        $("#dv1").appendTo($("#dv2"));
     </script>
 </body>
 </html>
