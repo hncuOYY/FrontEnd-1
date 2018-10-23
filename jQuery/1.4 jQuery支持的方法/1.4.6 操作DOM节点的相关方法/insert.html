@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="dv1">a</div>
+    <div id="dv2">b</div>
+    <hr>
+    <script src="../jquery-3.3.1.min.js"></script>
+    <script>
+        /*
+        在指定节点外添加节点
+            after(content), after(function(index)), before(content)
+            before(function(index)), insertAfter(selector), insertBefore(selector)
+        */
+        // 直接将一段HTML字符串插入到id为dv1的元素的前面
+        $("#dv1").before("<b>html</b>");
+        // 直接将一段HTML字符串插入到id为dv2的元素的后面
+        $("#dv2").after("<b>css</b>");
+        // 将id为dv2的元素插入hr元素之后
+        $("#dv2").insertAfter("hr");   
+
+        // 使用函数在不同节点前添加不同内容
+        $("div").before(function(i) {
+            return "<div>" + i + "</div>";
+        });                  
+    </script>
+</body>
+</html>

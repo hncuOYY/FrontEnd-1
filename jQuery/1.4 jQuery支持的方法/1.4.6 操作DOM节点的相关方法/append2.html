@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <script src="../jquery-3.3.1.min.js"></script>
+    <script>
+        /*
+        append(function(index, html)):
+            迭代处理jQuery所包含的每个节点, 在节点尾部插入函数的返回值
+            index: 当前正在被迭代处理的DOM节点的索引
+            DOM: 当前正在被迭代处理的DOM节点的内容
+        prepend(function(index, html))
+        */
+        // 定义一个数组
+        var books = [
+            {name: "html", price: 60},
+            {name: "css", price: 30},
+            {name: "js", price: 80}
+        ];
+
+        // 使用函数为不同的div元素动态添加不同的内容
+        $("div").append(function(i) {
+            // i代表jQuery对象中正在迭代处理的元素的索引
+            return "name: " + books[i].name + ", price: " + books[i].price;
+        });
+    </script>
+</body>
+</html>
