@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <img/><img/>
+    <div>
+        <img/><img/><img/>
+    </div>
+    <script src="../jquery-3.3.1.min.js"></script>
+    <script>    
+        /*
+        attr(name): 访问jQuery对象里第一个元素的name属性
+        attr(map): 用于为jQuery对象里的所有DOM对象同时设置多个属性
+        attr(name, value): 用于为jQuery对象里的所有DOM对象设置单个属性
+        attr(key, fn)
+        removeAttr(name): 删除jQuery对象里所有DOM对象里的name属性
+
+        prop(propName): 访问jQuery对象里第一个元素的propName属性
+        prop(properties): 用于为jQuery对象里的所有DOM对象同时设置多个属性
+        prop(name, value): 用于为jQuery对象里的所有DOM对象设置单个属性
+        prop(key, fn)
+        */
+        // 获取body下面的img元素, 并为这些img元素设置src属性
+        $("body>img").attr("src", "./images/earth.gif");
+        // 获取div下的img元素, 并为这些img元素设置src属性
+        $("div>img").prop("src", function(index) {
+            return "./images/" + (index + 1) + ".gif";
+        });
+    </script>
+</body>
+</html>
