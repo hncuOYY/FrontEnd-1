@@ -7,7 +7,16 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="hello"></div>
+    <div id="dv1">
+        整体添加CSS样式的元素
+    </div>
+    <div id="dv2">
+        采用css(properties)方法添加CSS样式的元素
+    </div>
+    <div id="dv3" style="position: absolute;">
+        
+    </div>
+    <div id="dv3"></div>
     <script src="../jquery-3.3.1.min.js"></script>
     <script>
         /*
@@ -17,7 +26,24 @@
         height(val), width(), width(val), innerHeight(), innerWidth(), outerHeight([options])
         outerWidth([options])
         */
-        
+        // 为id为dv1的元素设置class="test"
+        $("#dv1").addClass("test");
+
+        // 为id为dv2的元素设置内联CSS样式
+        $("#dv2").css({border: "1px solid black", color: "green"});
+
+        var target = $("#dv3")
+            .css("background-color", "#ccc")
+            .css("padding", 10)
+            .width(200)
+            .height(80)
+            // 设置位置
+            .css("left", 40)
+            .css("top", 64)
+
+        // 获取target的位置
+        var posi = target.position();
+        console.log("x: " + posi.left + "\n" + "y: " + posi.top);
     </script>
 </body>
 </html>

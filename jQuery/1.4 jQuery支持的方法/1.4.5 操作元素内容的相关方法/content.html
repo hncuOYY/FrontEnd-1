@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="dv"></div>
+    <input type="text" id="txt"><br>
+
+    <select id="gender" multiple>
+        <option value="male">男</option>
+        <option value="female">女</option>
+    </select>
+
+    <script src="../jquery-3.3.1.min.js"></script>
+    <script>
+        /*
+        html(), html(val), text(), text(val), val(), val(val), var(Array<String>)
+        */
+        $("#dv").html("这是一个div标签");
+        $("#txt").val("这是一个文本输入框");
+        // 输出下拉框的文本内容
+        console.log($("#gender").text());
+    </script>
+</body>
+
+</html>
