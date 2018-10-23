@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div></div>
+    姓名:<span></span>
+    年龄:<span></span>
+    <script src="../jquery-3.3.1.min.js"></script>
+    <script>
+        /*
+        jQuery对象支持的数据存储方法
+            data(name, value): 向jQuery对象里存储name:value的数据对
+            data(object): 向jQuery对象中一次存入多个name:value数据对
+            data(name): 获取jQuery对象里存储的key为name的数据
+            data(): 获取jQuery对象中存储的所有数据
+            removeData([name]): 删除jQuery对象里存储的key为name的数据
+            removeData([list]): 删除list所列出的多个key对应的数据
+        
+        // jQuery命名空间下的工具方法
+        jQuery.data(element, key, value)
+        jQuery.data(element, key)
+        jQuery.data(element)
+        jQuery.removeData(element[,key])
+        jQuery.hasData(element): 判断element元素中是否已存储数据
+        */
+        var target = $("<div></div>");
+        // 访问jQuery对象里的数据
+        target.data("1", "oyy");
+        console.log(target.data("1")); // oyy
+        // 删除jQuery对象里的数据
+        target.removeData("1");
+        // 再次访问数据, 将返回"undefined"
+        console.log(target.data("1")); // undefined
+        
+        // 获取页面上第一个div元素
+        var div = $("body>div")[0];
+        // 向div元素存储元素
+        $.data(div, "test", {name: "oyy", age: 18});
+        // 访问div元素中存储的数据
+        $("span:first").text(jQuery.data(div, "test").name);
+        $("span:last").text(jQuery.data(div)["test"].age);
+        // 判断div元素中是否有数据
+        console.log($.hasData(div)); // true
+        // 删除div元素中的数据
+        $.removeData(div);
+        console.log($.hasData(div)); // false
+    </script>
+</body>
+</html>
