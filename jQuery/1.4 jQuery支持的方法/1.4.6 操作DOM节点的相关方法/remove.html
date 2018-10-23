@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="dv1"><span>这是一个span标签</span></div>
+    <span id="test">id为test的span标签</span>
+    <span>最后一个span标签</span>
+
+    <script src="../jquery-3.3.1.min.js"></script>
+    <script>
+        /*
+        删除:
+            empty(), remove([selector]), detach([selector]), clone()
+        */
+        // 将div元素中的内容全部清空
+        $("#dv1").empty()
+            .append("重新添加");
+        
+        // 删除id为test的span元素
+        $("span").remove("#test");
+
+        // 取得页面中最后一个span元素, 并复制该元素
+        $("span:nth-of-type(1)").clone()
+            .css("background-color", "green")
+            .appendTo("body");
+    </script>
+</body>
+</html>

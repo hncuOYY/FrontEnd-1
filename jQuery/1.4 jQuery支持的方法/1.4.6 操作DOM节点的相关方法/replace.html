@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div></div>
+    <div>这是第二个div标签</div>
+    <p></p>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+
+    <script src="../jquery-3.3.1.min.js"></script>
+    <script>
+        /*
+        替换:
+            replaceWith(newContent), replaceWith(function(index)), replaceAll(selector)
+        */
+        // 将第一个div元素替换成span元素
+        $("div:first").replaceWith("<span>替换成span标签</span>");
+        
+        // 将jQuery对象中的每个DOM节点替换成span标签
+        $("ul>li").replaceWith(function(index) {
+            return "第" + index + "<span>个span标签</span><br>"
+        });
+        // 功能与replaceWith,只是交换了一下位置
+        $("<div>又一个div标签</div>").replaceAll("p");
+    </script>
+</body>
+</html>

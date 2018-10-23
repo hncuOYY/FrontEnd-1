@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <span id="test1">test1</span>
+    <span id="test2">test2</span>
+
+    <script src="../jquery-3.3.1.min.js"></script>
+    <script>
+        /*
+        包裹:
+            wrap(wrappingElement), wrap(function(index))
+            wrapAll(wrappingElement), wrapInner(wrappingElement)
+            wrapInner(function(index)), unwrap()
+        */
+        // 在每个span元素之外包裹一个带点线边框的div元素
+        $("span").wrap("<div style='border: 1px dotted black'></div>")
+
+        // 将每个span元素内部成分包裹一个灰色背景的span元素
+        $("span").wrapInner("<span style='background-color:#ddd'></span>");
+    </script>
+</body>
+</html>
