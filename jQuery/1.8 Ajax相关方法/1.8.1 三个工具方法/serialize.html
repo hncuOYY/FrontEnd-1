@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form id="test">
+        用户名: <input type="text" id="user" name="user"><br>
+
+        书籍: <select name="book" id="book">
+            <option value="html">html</option>
+            <option value="css">css</option>
+            <option value="js">js</option>        
+        </select><br>
+    </form>
+        <button id="btn1">查询字符串</button>
+        <button id="btn2">查询JSON对象</button>
+        <button id="btn3">将对象转换为查询字符串</button>
+        <br>
+        <span id="show"></span>
+  
+    <script src="../jquery-3.3.1.min.js"></script>
+    <script>
+        /*
+        jQuery.param(obj): 将obj参数(对象或数组)转换成查询字符串
+        serialize(): 将jQuery对象包含的表单或表单控件转换成查询字符串
+        serializeArray(): 将jQuery对象包含的表单或表单控件转换为一个数组
+        */
+        // 为id为btn1的按钮绑定事件处理函数
+        $("#btn1").click(function() {
+            // 将id为test的表单转换为查询字符串
+            $("#show").html($("#test").serialize());
+        });
+
+        // 为id为btn2的按钮绑定事件处理函数
+        $("#btn2").click(function() {
+            // 将所有输入元素转换为数组
+            var arr = $(":input").serializeArray();
+           
+            $("#show").empty();
+
+            // 遍历arr数组
+            for (var index in arr) {
+                $("#show").append("name: " + arr[index].name + ", value: " + arr[index].value + "<br>")
+            }
+        });
+
+        $("#btn3").click(function() {
+            // 调用$.param将对象转换为查询字符串
+            $("#show").html("{name: 'html', price: '100'}转换出的查询字符串为: <br>"
+                + $.param({name: 'html', price: '100'})); 
+        });
+    </script>
+</body>
+</html>
