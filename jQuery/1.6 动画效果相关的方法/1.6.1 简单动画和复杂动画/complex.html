@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #dv {
+            width: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="执行动画" id="btn">
+    <div id="dv">自定义动画控制的元素</div>
+    <script src="../jquery-3.3.1.min.js"></script>
+    <script>
+        /*
+        animate(params[, duration][, eassing][, callback])
+        animate(params, options):
+            params: {prop1: endVal1, prop2: endVal2...}
+            options: duration, easing, complete, step, queue
+        */  
+       // 为id为btn的按钮绑定事件处理函数
+       $("#btn").click(function() {
+            // 为id为dv的元素指定自定义动画
+            $("#dv").animate(
+                {
+                    // 指定动画结束时目标元素的状态, 这里面的每个属性都应该是可以渐变的样式属性
+                    fontSize: "24px", // 属性名使用"驼峰"写法
+                    width: "400px",
+                    opacity: 0.5
+                },
+                // 指定动画详细选项
+                {
+                    duration: 2000,
+                    easing: "swing",
+                    complete: function() {
+                        alert("动画执行完成");
+                    }
+                }
+            );
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 60px;
+        }
+
+        #dv1 {
+            background-color: red;
+        }
+        #dv2 {
+            background-color: green;
+        }
+        #dv3 {
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div id="dv1"></div>
+    <div id="dv2"></div>
+    <div id="dv3"></div>
+    <input type="button" id="btn1" value="toggle">
+    <input type="button" id="btn2" value="slide down">
+    <input type="button" id="btn3" value="slide up">
+    <input type="button" id="btn4" value="fade in">
+    <input type="button" id="btn5" value="fade out">
+
+    <script src="../jquery-3.3.1.min.js"></script>
+    <script>
+        /*
+        show([duration][[, easing][, callback])
+        hide([duration][, easing][, callback])
+        toggle([duration][, easing][, callback])
+        toggle(showOrHide)
+        slideDown([duration][, easing][, callback])
+        slideUp([duration][, easing][, callback])
+        slideToggle([duration][, easing][, callback])
+        fadeIn([duration][, easing][, callback])
+        fadeOut([duration][, easing][, callback])
+        fadeTo([duration][, easing][, callback])
+        fadeToggle([duration][, easing][, callback])
+
+        duration: slow, normal, fast
+        easing: linear, swing
+        */
+        $("#btn1").click(function() {
+            $("#dv1").toggle(1000);
+        });
+
+        $("#btn2").click(function() {
+            $("#dv2").slideDown(1000);
+        });
+        $("#btn3").click(function() {
+            $("#dv2").slideUp(1000);
+        });
+
+        $("#btn4").click(function() {
+            $("#dv3").fadeIn(1000);
+        });
+        $("#btn5").click(function() {
+            $("#dv3").fadeOut(1000);
+        });
+    </script>
+</body>
+</html>

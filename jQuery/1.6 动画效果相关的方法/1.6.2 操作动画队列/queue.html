@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <p>动画队列的长度:<span></span></p>
+    <div></div>
+
+    <script src="../jquery-3.3.1.min.js"></script>
+    <script>
+        /*
+        jQuery提供了以下几种方法来操作动画队列:
+            stop([clearQueue], [gotoEnd])
+            queue([queueName]): 返回当前jQuery对象里第一个DOM元素上的动画函数对象
+            queue([queueName,] callback)
+            queue([queueName], newQueue)
+            dequeue(): 执行动画函数队列的第一个动画函数, 并将该动画函数移出队列
+            clearQueue([queueName]): 清空动画函数队列中的所有动画函数
+
+        上面这些方法都有一个queueName参数, 该参数用于为动画队列指定一个名称
+        如果省略该参数, jQuery默认使用标准的动画队列名: fx
+        */
+        function runIt() {
+            // 第1个动画: 从当前位置向右移动300px
+            $("div").animate({left: '+=300px'}, 2000);
+            // 第2个动画: 卷起来
+            $("div").slideToggle(1000); 
+            // 第3个动画: 放下来
+            $("div").slideToggle("fast");
+            // 第4个动画: 从前位置向左移动300px
+            $("div").animate({left: '-=300px'}, 1500);
+        }  
+
+        // 0.5描述调用一次, 显示动画队列的长度
+        function showIt() {
+            var n = $("div").queue();
+            $("span").text(n.length);
+            console.log(n);
+            
+            // 当动画队列长度为0时, 终止函数
+            if (n.length == 0)
+                return;
+
+            setTimeout(showIt, 500);
+            console.log("hello");
+        }
+        runIt();
+        showIt();
+    </script>
+</body>
+</html>
