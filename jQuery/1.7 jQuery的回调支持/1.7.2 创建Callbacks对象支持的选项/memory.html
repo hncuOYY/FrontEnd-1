@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script src="../jquery-3.3.1.min.js"></script>
+    <script>
+        // 定义两个函数
+        function fn1(value) {
+            document.writeln("fn1函数输出: " + value + "<br>");
+        }
+        function fn2(value) {
+            document.writeln("fn2函数输出: " + value + "<br>");
+        }
+
+        // 使用特定选项创建一个回调函数列表
+        var callbacks = $.Callbacks("memory");
+        // 添加回调函数
+        callbacks.add(fn1);
+        // "html"参数将会被缓存
+        callbacks.fire("html");
+        // 用上一次调用的回调函数的参数作为参数自动触发该回调函数
+        callbacks.add(fn2); // fn2函数输出: html
+        document.writeln("<hr>");
+        
+        // "css"参数将会被缓存
+        callbacks.fire("css");
+        
+        // 删除回调函数
+        callbacks.remove(fn1, fn2);
+        callbacks.add(fn1); // fn1函数输出: css
+    </script>
+</body>
+</html>

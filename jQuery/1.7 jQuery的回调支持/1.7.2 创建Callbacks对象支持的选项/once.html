@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script src="../jquery-3.3.1.min.js"></script>
+    <script>
+        /*
+        once: 保证整个Callbacks对象只能被fire()一次
+        memory: 缓存前一次调用的参数
+        unique: 保证一个回调函数最多只被添加一次
+        stopOnFalse: 当某回调函数返回false时, 立即中断调用
+        
+        例如:
+            $.Callbacks("unique stopOnFalse")
+        */
+        // 定义两个函数
+        function fn1(value) {
+            document.writeln("fn1函数输出: " + value + "<br>");
+        }
+        function fn2(value) {
+            document.writeln("fn2函数输出: " + value + "<br>");
+        }
+        
+        // 使用"once"选项创建一个回调函数列表
+        var callbacks = $.Callbacks("once");
+        // 添加回调函数
+        callbacks.add(fn1);
+        // 触发所有回调函数
+        callbacks.fire("html");
+        // 添加回调函数
+        callbacks.add(fn2);
+        document.writeln("<hr>");
+        // 触发回调函数, 不会生效
+        callbacks.fire("css");
+    </script>
+</body>
+</html>
