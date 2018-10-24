@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="dv">
+        鼠标移入, 移出将触发指定函数
+    </div>
+    <input type="button" value="点击" id="btn">
+    <script src="../jquery-3.3.1.min.js"></script>
+    <script>
+        $("#dv").css("border", "1px solid green")
+            .css("background-color", "pink")
+            .width(200)
+            .height(80)
+            .hover(function() {
+                console.log("鼠标移入");
+            },
+            function() {
+                console.log("鼠标移出");
+            }    
+        );
+
+        $("#btn").click(function() {
+            console.log("hello");
+        }).click(); // 没有指定函数, 将使用click()方法触发$("#btn")的click事件
+    </script>
+</body>
+</html>

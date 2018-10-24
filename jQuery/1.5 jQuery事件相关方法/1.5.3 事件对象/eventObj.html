@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div style="position: absolute;">
+        <img src="./plane.gif" alt="飞机">
+    </div>
+    <script src="../jquery-3.3.1.min.js"></script>
+    <script>
+        // 页面加载完成后执行该函数
+        $(function() {
+            // 获取页面包含飞机图片的div元素
+            var target = $("div");
+            
+            // 为body元素的keydown事件绑定事件处理函数
+            $("body").keydown(function(event) {
+                // which属性指示按了哪个键或按钮
+                switch(event.which) {
+                    // 按下向左键
+                    case 37:
+                        target.offset({
+                            left: target.offset().left  - 4,
+                            top: target.offset().top
+                        });
+                        break;
+                    // 按下向上键
+                    case 38: 
+                        target.offset({
+                            left: target.offset().left,
+                            top: target.offset().top - 4
+                        });
+                        break;
+                    // 按下向右键
+                    case 39:
+                        target.offset({
+                            left: target.offset().left + 4,
+                            top: target.offset().top
+                        });
+                        break;
+                    // 按下向下键 
+                    case 40:
+                        target.offset({
+                            left: target.offset().left,
+                            top: target.offset().top + 4
+                        });
+                        break;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
