@@ -22,7 +22,7 @@
         $(() => alert("页面加载完成!"));
 
         // 设置2s后取消延迟ready()事件处理函数
-        setTimeout("$.holdReady(false);", 2000);
+        window.setTimeout("$.holdReady(false);", 2000);
     </script>
 </body>
 

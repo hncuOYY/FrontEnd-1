@@ -9,9 +9,19 @@
 <body>
     <div id="dv"></div>
     <div></div>
+    <p id="ph"><span></span></p>
+    <span></span>
 
     <script src="../jquery-3.3.1.min.js"></script>
     <script>
+        /*
+        jQuery核心函数:
+            jQuery(expression, [context]): context表明仅获取context的子元素
+            jQuery(elements)
+            jQuery(html, [ownerDocument]): ownerDocument代表创建DOM元素所在的文档
+            jQuery(html, props)
+            jQuery(object)
+        */
         // 获取所有div标签
         $("div").html("这是一个div标签");
 
