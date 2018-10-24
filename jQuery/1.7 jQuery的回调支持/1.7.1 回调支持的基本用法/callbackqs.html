@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script src="../jquery-3.3.1.min.js"></script>
+    <script>
+        /*
+        jQuery.Callbacks(flags): 根据创建的flags创建并返回Callbacks对象, Callbacks对象表示一个回调函数列表
+        
+        add(callbacks): 将一个或多个回调函数添加到Callbacks对象中
+        disable(): 禁用回调函数
+        empty(): 从Callbacks对象中删除所有回调函数
+        fire(arguments): 使用指定参数arguments激发Callbacks对象中所有回调函数
+        fired(): 判断Callbacks对象中的回调函数是否被调用了至少一次
+        has(callback): 判断Callbacks对象中是否包含callback回调函数
+        lock(): 将Callbacks对象锁定在当前状态
+        locked(): 判断Callbacks对象是否处于锁定状态
+        remove(callback): 从Callbacks对象中删除一个或多个回调函数
+        */
+        // 定义两个函数
+        function fn1(value) {
+            document.writeln("fn1函数输出: " + value + "<br>");
+        }
+        function fn2(value) {
+            document.writeln("fn2函数输出: " + value + "<br>");
+        }
+
+        // 创建一个回调函数列表
+        var callbacks = $.Callbacks();
+
+        // 向回调函数列表中添加第一个回调函数
+        callbacks.add(fn1);
+        // 触发回调函数列表中的所有回调函数(只有fn1被触发)
+        callbacks.fire("html");
+
+        // 再次向回调函数列表中添加一个回调函数
+        callbacks.add(fn2);
+        document.writeln("<hr>");
+
+        // 触发回调函数列表中的所有回调函数(fn1, fn2被触发)
+        callbacks.fire("css");
+
+        // 从回调函数列表中删除fn1函数
+        callbacks.remove(fn1);
+        document.writeln("<hr>");
+
+        // 触发回调函数列表中的所有回调函数(只有fn2被触发)
+        callbacks.fire("js");
+    </script>
+</body>
+</html>
