@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div { 
+            width: 200px;
+            height: 100px;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <button>开始</button>
+    <p>准备...</p>
+    <div></div><br>
+    <div></div><br>
+    <div></div><br>
+    <div></div>
+
+    <script src="../jquery-3.3.1.min.js"></script>
+    <script>
+        $("button").click(function() {
+            $("p").append("开始动画...");
+            // 迭代处理每个div元素
+            $("div").each(function(i) {
+                // 隐藏所需时间不同
+                $(this).fadeOut(1000 * (i + 1));
+            });
+
+            // 动画队列执行完成时指定回调函数
+            $("div").promise().done(function() {
+                $("p").append("动画完成!");
+            });
+        });        
+    </script>
+</body>
+</html>
