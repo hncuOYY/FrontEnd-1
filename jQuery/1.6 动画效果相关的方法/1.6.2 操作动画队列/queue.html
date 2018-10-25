@@ -46,15 +46,15 @@
         // 0.5描述调用一次, 显示动画队列的长度
         function showIt() {
             var n = $("div").queue();
-            $("span").text(n.length);
             console.log(n);
+            
+            $("span").text(n.length);
             
             // 当动画队列长度为0时, 终止函数
             if (n.length == 0)
                 return;
 
             setTimeout(showIt, 500);
-            console.log("hello");
         }
         runIt();
         showIt();
