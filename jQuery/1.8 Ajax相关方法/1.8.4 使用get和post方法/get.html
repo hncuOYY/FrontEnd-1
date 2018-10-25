@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h3>请输入你的信息</h3>
+    <form id="userForm">
+        用户名: <input type="text" name="user"><br>
+        书籍: <select name="book" multiple>
+            <option value="html">html</option>
+            <option value="css">css</option>
+            <option value="js">js</option>
+        </select><br>
+        <input type="button" value="Load" id="load">
+        <div id="show"></div>
+    </form>
+
+    <script src="../jquery-3.3.1.min.js"></script>
+    <script>
+        /*
+        jQuery.get(url[, data][, callback][, type]): 向url发送异步的GET请求
+        jQuery.getJSON(url, [,data][, callback]): 该函数是前一个函数的JSON版本, 相当于指定type参数为"json"
+        jQuery.getScript(url[, data][, callback]): 该函数是第一个函数的Script版本, 相当于指定type参数为"script"
+        */
+        // 为id为load的按钮绑定事件处理函数
+        $("#load").click(function() {
+            // 指定向pro发送请求, 以id为userForm的表单里各表单控件的值作为请求参数
+            $.get("pro", $("#userForm").serializeArray(),
+                // 指定回调函数
+                function(data, statusText) {
+                    $("#show").empty();
+                    $("#show").append("服务器响应状态为: " + statusText + "<br>");
+                    $("#show").append(data);
+                },
+                // 指定服务器响应为html
+                "html");
+        });
+    </script>
+</body>
+</html>
