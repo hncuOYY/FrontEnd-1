@@ -10,14 +10,15 @@
     <h3>请输入你的信息</h3>
     <form id="userForm">
         用户名: <input type="text" name="user"><br>
-        书籍: <select name="book" multiple>
+        书籍: <select name="books" multiple>
             <option value="html">html</option>
             <option value="css">css</option>
             <option value="js">js</option>
         </select><br>
         <input type="button" value="Load" id="load">
-        <div id="show"></div>
     </form>
+    <hr>
+    <div id="show"></div>
     <script src="./jquery-3.1.1.js"></script>
     <script>
         /*
@@ -27,7 +28,7 @@
         // 为id为load的按钮绑定事件处理函数
         $("#load").click(function() {
             // 向pro发送Ajax请求, 并自动加载服务器响应
-            $("#show").load("pro", $("#username").serializeArray());
+            $("#show").load("pro", $("#userForm").serializeArray());
         });
     </script>
 </body>
