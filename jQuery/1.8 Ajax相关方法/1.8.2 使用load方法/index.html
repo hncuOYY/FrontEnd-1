@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h3>请输入你的信息</h3>
+    <form id="userForm">
+        用户名: <input type="text" name="user"><br>
+        书籍: <select name="book" multiple>
+            <option value="html">html</option>
+            <option value="css">css</option>
+            <option value="js">js</option>
+        </select><br>
+        <input type="button" value="Load" id="load">
+        <div id="show"></div>
+    </form>
+    <script src="../jquery-3.3.1.min.js"></script>
+    <script>
+        /*
+        load(url[, data][, callback]): 向远程url发送异步请求, 并直接将服务器响应插入
+        当前与jQuery对象匹配的DOM元素内
+        */
+        // 为id为load的按钮绑定事件处理函数
+        $("#load").click(function() {
+            // 向pro发送Ajax请求, 并自动加载服务器响应
+            $("#show").load("pro", $("#username").serializeArray());
+        });
+    </script>
+</body>
+</html>
