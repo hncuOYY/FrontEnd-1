@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script src="../jquery-3.3.1.min.js"></script>
+    <!-- 
+        jQuery提供了jQuery.Deferred()方法来创建Deferred对象, Deferred对象提供了以下
+        三种状态来表示耗时操作的执行结果:
+            (1)任务执行中, 未完成(pending), Deferred对象将执行progress()方法添加的回调函数
+            (2)任务完成(fulfilled), Deferred包装了异步任务(函数), 该任务执行了resolve函数,
+                Deferred对象将执行done()方法添加的回调函数
+            (3)任务失败(rejected), Deferred包装了异步任务(函数), 该任务执行了reject函数,
+                Deferred对象将执行fail()方法添加的回调函数
+
+        Deferred对象支持的方法如下:
+            done(doneCallbacks), fail(doneCallbacks), always(alwaysCallbacks[, alwaysCallbacks])
+            notify(args), notifywith(context[, args]), progress(progressCallbacks), promise([target])
+            reject(args), rejectWith(context[, args]), resolve(args), resolveWith(context[, args])
+            state(), then(doneCallbacks, failCallbacks[, progressCallbacks])
+     -->
+    <script>
+        var calPrime = function(start, end) {
+            // 定义一个Deferred对象
+            var dfd = $.Deferred();
+
+            try {
+                // 定义质数字符串
+                var result = "";
+                
+                // 定义外循环标记
+                mark:
+                for (var n = start; n <= end; n++) {
+                    // 限制自然数在合理的范围中
+                    if (n < 2)
+                        continue;
+
+                    for (var i = 2; i <= Math.sqrt(n); i++) {
+                        // 判断n是否是一个质数
+                        if (n % i == 0)
+                            continue mark;
+                    }
+
+                    // 添加质数
+                    result += (n + ",");
+                }
+
+                // "耗时任务"完成时, 将Deferred对象的状态改为resolved
+                dfd.resolve(result);
+            }
+            catch (e) {
+                // 程序出现异常, 将Deferred对象的状态改为rejected
+                dfd.reject("任务失败");
+            }
+            // 返回Deferred对象对应的Promise对象
+            return dfd.promise();
+        }
+
+        // 调用calPrime耗时函数
+        calPrime(1, 1000) 
+            // 通过done方法添加回调函数
+            .done(function(args) {
+                $("body").append(args);
+            })
+            // 通过fail()方法添加回调函数
+            .fail(function(args) {
+                $("body").append(args);
+            });
+    </script>
+</body>
+</html>
