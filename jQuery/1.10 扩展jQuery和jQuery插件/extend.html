@@ -7,9 +7,63 @@
     <title>Document</title>
 </head>
 <body>
-    <script src=""></script>
+    喜欢的颜色: <br>
+    红色: <input type="checkbox" name="color" value="red">
+    绿色: <input type="checkbox" name="color" value="green">
+    蓝色: <input type="checkbox" name="color" value="blue"><br>
+
+    <input type="button" value="选中所有复选框" id="check">
+    <input type="button" value="取消选中的所有复选框" id="uncheck">
+    <input type="button" value="点击" id="btn">
+
+    <script src="./jquery-3.3.1.min.js"></script>
     <script>
-        
+        /*
+        jQuery.fn.extend(object): 为所有JQuery对象扩展新的方法
+        jQuery.extend(object): 为jQuery命名空间扩展新的方法
+        */
+        // 为所有jQuery对象扩展新的方法
+        $.fn.extend(
+            {
+                // 为jQuery对象扩展check方法
+                check: function() {
+                    // 遍历jQuery里每个DOM对象 指定其checked属性为true
+                    return this.each(function() {
+                        this.checked = true;
+                    });
+                },
+
+                // 为jQuery对象扩展uncheck方法
+                uncheck: function() {
+                    // 遍历jQuery里每个DOM对象, 指定其checked属性为false
+                    return this.each(function() {
+                        this.checked = false;
+                    });
+                }
+            }
+        );
+
+        $.extend(
+            // 为jQuery命名控件扩展新方法
+            {
+                test: function() {
+                    alert("为jQuery命名空间扩展的测试方法");
+                }
+            }
+        );
+
+        $("#check").click(function() {
+            $("input[type=checkbox]").check();
+        });
+
+        $("#uncheck").click(function() {
+            $("input[type=checkbox]").uncheck();
+        });
+
+        $("#btn").click(function() {
+            // 调用为jQuery命名空间扩展的新方法
+            $.test();
+        })
     </script>
 </body>
 </html>
