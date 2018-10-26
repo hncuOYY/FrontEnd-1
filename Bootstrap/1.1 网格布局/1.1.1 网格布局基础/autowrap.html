@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../bootstrap.min.css">
+    <style>
+        .row {
+            margin-bottom: 20px;
+        }
+        [class*="col-"] {
+            padding-top: 15px;
+            padding-bottom: 15px;
+            background-color: #eee;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            // 当单元格的个数超过12, 则超过部分的单元格将会自动换行
+            <div class="col-lg-9 col-md-9 col-sm-9">第一行(1).col-xx-9</div>
+            <div class="col-lg-4 col-md-4 col-sm-4">第一行(2).col-xx-4</div>
+        </div>
+    </div>
+</body>
+</html>
