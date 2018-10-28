@@ -1,0 +1,15 @@
+.a {
+  height: 25px;
+  background-color: #eee;
+  border: 1px solid black;
+}
+.b {
+  height: 20px;
+  background-color: #777777;
+  border: 2px solid black;
+}
+.c {
+  height: 50px;
+  background-color: #ffffff;
+  border: 4px dotted black;
+}

@@ -8,9 +8,16 @@
     <link rel="stylesheet" href="../bootstrap.min.css">
 </head>
 <body>
-    <!-- .table: 基本的表格 -->
+    <!-- 
+        .active: 高亮状态
+        .success: 添加标识成功行为的背景色
+        .info: 添加标识普通提示信息的背景色
+        .warning: 添加标识警告或用户注意的背景色
+        .danger: 添加标识危险或负面影响的背景色
+     -->
     <div class="container">
-        <table class="table">
+          <table class="table">
+             <caption><b>IT图书</b></caption>
              <thead>
                  <tr>
                     <th>书名</th>
@@ -21,28 +28,34 @@
              </thead>
 
              <tbody>
-                 <tr>
+                 <tr class="active">
                      <td>html</td>
                      <td>oyy</td>
                      <td>100</td>
                  </tr>
-                 <tr>
+                 <tr class="success">
                      <td>css</td>
                      <td>oyy</td>
                      <td>80</td>
                  </tr>
-                 <tr>
+                 <tr class="info">
                      <td>js</td>
                      <td>oyy</td>
                      <td>120</td>
                  </tr>
-             </tbody>
-             <tfoot>
-                 <tr>
-                     <td colspan="3" style="text-align: right">现总计: 3本图书</td>
+
+                 <tr class="warning">
+                     <td>java</td>
+                     <td>oyy</td>
+                     <td>108</td>
                  </tr>
-             </tfoot>
-        </table>
+                 <tr class="danger">
+                     <td>jsp</td>
+                     <td>oyy</td>
+                     <td>120</td>
+                 </tr>
+             </tbody>
     </div>
+</div>   
 </body>
 </html>

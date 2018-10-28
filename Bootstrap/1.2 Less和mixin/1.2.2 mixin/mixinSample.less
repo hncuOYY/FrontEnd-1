@@ -1,0 +1,21 @@
+@block-width: 300px;
+@block-height: 12px;
+@block-back: rgba(86, 61, 124, .15);
+
+.make-block(@width: @block-width, @height: @block-height, @back: @block-back) {
+    width: @width;
+    height: @height;
+    background-color: @block-back;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.md-block {
+    .make-block();
+}
+.bg-block {
+    .make-block(500px, 200px, #eee)
+}
+.small-block {
+    .make-block(150px, 60px, #bbb)
+}

@@ -1,0 +1,19 @@
+@normal-height: 25px;
+@baseColor: #eee;
+@width: 1px;
+.a {
+    height: @normal-height;
+    background-color: @baseColor;
+    border: @width solid black;
+}
+.b {
+    height: @normal-height - 5px;
+    background-color: @baseColor / 2;
+    border: @width + 1 solid black;
+}
+.c {
+    height: 2 * @normal-height;
+    background-color: @baseColor + #111;
+    border: (@width + 1) * 2 dotted black;
+}
+
