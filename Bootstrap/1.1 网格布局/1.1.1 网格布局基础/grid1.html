@@ -24,14 +24,13 @@
         .container-fluid: 用于占领viewport宽度的100%的容器
         
             .container: 支持响应式布局, 根据浏览器viewport的宽度, 按576px,768px, 992px, 1200px将viewport分成5挡
-                (1)当浏览器viewport宽度<576px时, .container容器使用最大宽度, 效果与.container-fluid一样
-                (1)当浏览器viewport宽度>=576px时, .container容器的宽度固定为540px
+                (1)当浏览器viewport宽度<768px时, .container容器使用最大宽度, 效果与.container-fluid一样
                 (2)当浏览器viewport宽度>=768px时, .container容器的宽度固定为750px
                 (3)当浏览器viewport宽度>=992px时, .container容器的宽度固定为970px
                 (4)当浏览器viewport宽度>=1200px时, .container容器的宽度固定为1170px
 
         class="row"的HTML元素必须放在class="container"或class="container-fluid"的HTML元素内
-        class="col-xx-N"的HTML元素必须放在class="row"的元素内(xx可换成sm, md, lg, xl;N可换为1~12的整数)
+        class="col-xx-N"的HTML元素必须放在class="row"的元素内(xx可换成xs, sm, md, lg;N可换为1~12的整数)
         其它被布局的HTML元素必须放在class="col-xx-N"的HTML元素内
      -->
     <div class="container">
