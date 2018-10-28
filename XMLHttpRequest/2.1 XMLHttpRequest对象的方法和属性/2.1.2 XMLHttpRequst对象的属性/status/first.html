@@ -25,6 +25,29 @@
                 "document"              返回document对象, 与responseXML返回值相同
                 "json"                  返回JavaScript对象, 该对象通过解析服务器响应的JSON字符串得到
                 "text"                  返回DOMString, 这是默认值
+
+            responseText: 该属性用于获取服务器的响应文本
+            responseXML: 该属性用于获取服务器响应的XML文档对象
+            responseURL: 该属性返回服务器响应来自的URL
+            status: 该属性是服务器返回的状态码, 只有服务器的响应已经完成时, 才会有该状态码
+            statusText: 该属性是服务器返回的状态文本信息, 只有当服务器的响应已经完成时, 才会有该状态文本信息
+            timeout: 设置XMLHttpRequest对象发送请求的超时时长, 以ms为单位
+            ontimeout: 绑定事件处理函数的属性, 该属性用于指定XMLHttpRequest对象发送请求超时后触发的事件处理函数
+            upload: 该属性返回XMLHttpRequest对象的上传进度, 通过为该对象的progress事件注册事件处理函数, 可以
+                    实时监听XMLHttpRequest对象的上传进度
+            withCredentials: 该属性设置跨站点访问的请求是否应该使用安全凭证
+
+            服务器常用的状态码及其对应的含义如下: 
+                200: 服务器响应正常
+                304: 该资源在上次请求之后没有任何修改, 这通常用于浏览器的缓存机制, 使用GET请求时尤其需要注意
+                400: 服务器不理解请求的语法
+                401: 访问资源的权限不够
+                403: 没有权限访问资源
+                404: 需要访问的资源不存在
+                405: 需要访问的资源被禁止访问
+                407: 访问资源需要代理身份验证
+                414: 请求的URL太长
+                500: 服务器内部错误
      -->
      <select name="first" id="first">
          <option value="1" selected>中国</option>
@@ -43,7 +66,7 @@
             var id = this.value;
 
             // 设置请求响应的URL
-            var url = "second.jsp?id=" + id;
+            var url = "second_bk.jsp?id=" + id;
 
             // 打开与服务器响应地址的连接
             xhr.open("POST", url, true)
@@ -52,17 +75,15 @@
             xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
             // 设置处理响应的回调函数
-            xhr.onload = processResponse;
+            xhr.onload = function() {
+                // 输出服务器相应的状态码和状态提示
+                alert(xhr.status + "\n" + xhr.statusText);
+            };
 
             // 发送请求
             xhr.send(null);
         }
 
-        // 定义处理响应的回调函数
-        function processResponse() {
-            // 输出服务器相应的状态码和状态提示
-
-        }
      </script>
 </body>
 </html>
