@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        XMLHttpRequst对象的属性:
+            readyState: 该属性用于获取XMLHttpRequest对象的处理状态
+                0: 还未开始发送请求
+                1: 开始发送请求
+                2: 请求发送完成
+                3: 开始读取服务器的响应
+                4: 读取服务器响应结束
+            
+            responseType: 该属性用于设置服务器返回的响应类型
+            response: 该属性用于获取服务器响应
+            不同的responseType对应的不同的response
+                ""                      返回DOMString, 这是默认值
+                "arraybuffer"           返回ArrayBuffer二进制数据
+                "blob"                  返回Blob对象
+                "document"              返回document对象, 与responseXML返回值相同
+                "json"                  返回JavaScript对象, 该对象通过解析服务器响应的JSON字符串得到
+                "text"                  返回DOMString, 这是默认值
+     -->
+     <select name="first" id="first">
+         <option value="1" selected>中国</option>
+         <option value="2">美国</option>
+         <option value="3">日本</option>
+     </select>
+     <div id="output"></div>
+     
+     <script>
+        var select = document.getElementById("first");
+        
+         // 创建XMLHttpRequest对象
+         var xhr = new XMLHttpRequest();
+
+        select.onchange = function() {
+            var id = this.value;
+
+            // 设置请求响应的URL
+            var url = "second.jsp?id=" + id;
+
+            // 打开与服务器响应地址的连接
+            xhr.open("POST", url, true)
+            
+            // 设置请求头
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+            // 设置处理响应的回调函数
+            xhr.onload = processResponse;
+
+            // 发送请求
+            xhr.send(null);
+        }
+
+        // 定义处理响应的回调函数
+        function processResponse() {
+            // 输出服务器相应的状态码和状态提示
+
+        }
+     </script>
+</body>
+</html>
