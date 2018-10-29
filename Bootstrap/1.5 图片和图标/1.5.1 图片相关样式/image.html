@@ -8,6 +8,38 @@
     <link rel="stylesheet" href="../bootstrap.min.css">
 </head>
 <body>
-    
+    <!-- 
+        .img-responsive: 响应式图片
+        .center-block: 如果要让响应式图片水平居中, 应设置该样式
+        .img-rounded: 设置圆角图片
+        .img-circle: 圆形图片
+        .img-thumbnail: 缩略图图片, 图片四周有一圈淡灰色的边框
+     -->
+     <div class="container">
+         <div class="row">
+             <div class="col-sm-3 col-xs-3">
+                 <h3>默认图片</h3>
+                 <img src="./pic.gif">
+             </div>
+             <div class="col-sm-3 col-xs-3">
+                <h3>圆角图片</h3>
+                <img src="./pic.gif" class="img-rounded">
+            </div>
+            <div class="col-sm-3 col-xs-3">
+                <h3>圆形图片</h3>
+                <img src="./pic.gif" class="img-circle">
+            </div>
+            <div class="col-sm-3 col-xs-3">
+                <h3>缩略图图片</h3>
+                <img src="./pic.gif" class="img-thumbnail">
+            </div>
+         </div>
+         <div class="row">
+             <div class="col-sm-3 col-xs-3">
+                 <h3>响应式图片</h3>
+                 <img src="./pic.gif" class="img-responsive">
+             </div>
+         </div>
+     </div>
 </body>
 </html>

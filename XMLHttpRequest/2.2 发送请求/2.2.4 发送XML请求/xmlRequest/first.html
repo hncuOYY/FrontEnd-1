@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta name="author" content="Yeeku.H.Lee(CrazyIt.org)" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title> 发送XML请求 </title>
+	<style>
+		select {
+			width: 120px;
+			font-size:11pt;
+		}
+	</style>
+</head>
+
+<body>
+	<!-- 支持多选的列表框 -->
+	<select name="first" id="first" size="5" multiple="multiple">
+		<option value="1" selected="selected">中国</option>
+		<option value="2">美国</option>
+		<option value="3">日本</option>
+	</select>
+	<!-- 用于发送Ajax请求的按钮 -->
+	<input type="button" value="发送" onClick="send();" />
+	<!-- 被级联改变的列表框 -->
+	<select name="second" id="second" size="5" />
+	</select>
+	<script>
+		String.prototype.trim = function () {
+			return this.replace(/^\s+/, "")
+				.replace(/\s+$/, "");
+		}
+		// 定义创建XML文档的函数
+		function createXML() {
+			// 开始创建XML文档，countrys是根元素
+			var xml = "<countrys>";
+			// 获取first元素的，并获取起所有的子节点（选项）
+			var options = document.getElementById("first").childNodes;
+			var option = null;
+			// 遍历国家下拉列表的所有选项
+			for (var i = 0; i < options.length; i++) {
+				option = options[i];
+				// 如果某个选项被选中
+				if (option.selected) {
+					// 在countrys的根节点下增加一个country的子节点
+					xml = xml + "<country>" + option.value + "<\/country>";
+				}
+			}
+			// 结束XML文档的根节点
+			xml = xml + "<\/countrys>";
+			// 返回XML文档
+			return xml;
+		}
+		// 创建XMLHttpRequest对象
+		var xhr = new XMLHttpRequest();
+		// 定义发送XML请求的函数
+		function send() {
+			// 定义请求发送的URL
+			var uri = "second.jsp";
+			// 打开与服务器连接
+			xhr.open("POST", uri, true);
+			// 设置请求头
+			xhr.setRequestHeader("Content-Type"
+				, "application/x-www-form-urlencoded");
+			// 指定当XMLHttpRequest对象状态发生改变时触发processResponse函数
+			xhr.onload = processResponse;
+			// 发送XML请求
+			xhr.send(createXML());
+		}
+		// 定义处理服务器响应的回调函数
+		function processResponse() {
+			if (xhr.status == 200) {
+				// 获取服务器响应字符串，并以$作为分隔符分割成多个字符串
+				var cityList = xhr.responseText.split("$");
+				var displaySelect = document.getElementById("second");
+				// 清空second下拉列表的选项
+				displaySelect.innerHTML = "";
+				for (var i = 0; i < cityList.length; i++) {
+					if (cityList[i].trim().length > 0) {
+						// 依次创建多个option元素
+						option = document.createElement("option");
+						option.innerHTML = cityList[i];
+						// 将创建的option元素添加到下拉列表最后
+						displaySelect.appendChild(option);
+					}
+				}
+			}
+		}
+	</script>
+</body>
+
+</html>
