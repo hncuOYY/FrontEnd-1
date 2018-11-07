@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="../bootstrap.min.css">
+</head>
+<body>
+	<!-- 
+	 	行内表单会让所有表单控件表现为inline-block级别的控件, 其只使用与viewport宽度>=780px的情形
+
+	 	Bootstrap默认将输入框, 单选/多选框控件设置为width: 100%, 但对于行内表单
+	 	Bootstrap将这些元素的宽度设置为width: auto
+	 -->
+	<div class="container">
+		<div class="form-inline">
+			<!-- .form-group样式的元素作为容器 -->
+			<div class="form-group">
+				<label for="name">用户名</label>
+				<!-- .form-control样式应用于表单控件 -->
+				<input type="text" class="form-control" id="name" placeholder="用户名">
+			</div>
+
+			<div class="form-group">
+				<label for="passwd">密码</label>
+				<!-- .form-control样式应用于表单控件 -->
+				<input type="password" class="form-control" id="passwd" placeholder="密码">
+			</div>
+
+			<!-- .checkbox样式的元素作为容器 -->
+			<div class="checkbox">
+				<label>
+					<input type="checkbox">婚否
+				</label>
+			</div>
+			<button type="submit" class="btn btn btn-default">提交</button>
+		</div>
+	</div>
+</body>
+</html>

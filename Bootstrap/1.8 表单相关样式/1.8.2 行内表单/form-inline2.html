@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="../bootstrap.min.css">
+</head>
+<body>
+	<!-- 
+		即使对于行内表单, 也应该为每个表单控件配置对应的label元素
+		否则, 屏幕阅读器将无法正确识别它们, 如果为了节省行内表单的
+		空间, 可为label元素设置.sr-only来隐藏该元素
+
+		还可使用aria-label, aria-labelledby或title属性来代替label元素,
+	 -->
+	<div class="container">
+		<div class="form-inline">
+			<div class="form-group">
+				<label for="name" class="sr-only">用户名</label>	
+				<input type="text" class="form-control" id="name" placeholder="用户名">
+			</div>
+
+			<div class="form-group">
+				<label for="passwd" class="sr-only">密码</label>
+				<input type="password" class="form-control" id="passwd" placeholder="密码">
+			</div>
+
+			<div class="checkbox">
+				<label>
+					<input type="checkbox"> 婚否
+				</label>
+			</div>
+			<button type="submit" class="btn btn-default">提交</button>
+		</div>
+	</div>
+</body>
+</html>

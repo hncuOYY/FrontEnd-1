@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="../bootstrap.min.css">
+	<style type="text/css">
+		.container div {
+			margin-bottom: 20px;
+			background-color: #eee;
+			padding: 15px 0 15px 15px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<!-- 
+			在.visible-xx-xxx等样式中, 中间的xx可以是xs, sm, md, lg等表示viewport尺寸
+			的代号, 后面的xxx可以是block, inline, inline-block这3个表示块模型的代号
+		 -->
+		<!-- 宽度<768px, 可见 -->
+		<div class="visible-xs-inline">visible-xs-block</div>
+		<!-- 宽度>=768px, 可见 -->
+		<div class="visible-sm-block">visible-sm-block</div>
+		<!-- 宽度>=992px, 可见 -->
+		<div class="visible-md-block">visible-md-block</div>
+		<!-- 宽度>=1200px, 可见 -->
+		<div class="visible-lg-block">visible-lg-block</div>
+		
+		<!-- 宽度<768px, 不可见 -->
+		<div class="hidden-xs">hidden-xs</div>
+		<!-- 宽度>=768px, 不可见 -->
+		<div class="hidden-sm">hidden-sm</div>
+		<!-- 宽度>=992px, 不可见 -->
+		<div class="hidden-md">hidden-md</div>
+		<!-- 宽度>=1200px, 不可见 -->
+		<div class="hidden-lg">hidden-lg</div>
+	</div>
+</body>
+</html>

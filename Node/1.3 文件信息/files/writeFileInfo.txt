@@ -1,0 +1,16 @@
+目录内容:files
+文件大小:0
+是否是普通文件:false
+
+目录内容:readFileInfo.js
+文件大小:874
+是否是普通文件:true
+
+目录内容:readdir.js
+文件大小:170
+是否是普通文件:true
+
+目录内容:stats.js
+文件大小:306
+是否是普通文件:true
+
