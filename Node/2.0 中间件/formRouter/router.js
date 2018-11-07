@@ -14,7 +14,7 @@ router.post('/index.html', (req, res) => {
     req.on('data', chunk => {
         dataStr += chunk
     })
-
+    // 数据完毕触发
     req.on('end', () => {
         console.log(dataStr) // name=oyy&age=16
 
