@@ -18,7 +18,7 @@ app.listen(3000, () => console.log('Example app listening on port 3000!'))
 function myMiddleware(req, res, next) {
 	const infoStr = `${new Date().toLocaleString()}  ${req.url}  ${req.method}\n`;
 
-	fs.appendFile(path.join(__dirname, './info.txt'), infoStr, err => {
+	fs.appendFile(path.join(__dirname, './logInfo.txt'), infoStr, err => {
 		if (err) return console.log('写入失败');
 
 		console.log('写入成功');
