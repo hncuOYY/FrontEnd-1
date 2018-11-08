@@ -9,13 +9,12 @@ const connetion = mysql.createConnection({
   database: 'mybase'
 })
 
-// 调用connect()连接上数据库服务器
+// 调用connect()连接数据库服务器
 connetion.connect()
 
 // 调用connection.query()来指定执行的SQL语句
 const sqlStr = 'select * from users'
 
-// 执行SQL语句
 connetion.query(sqlStr, (err, results) => {
   // null
   console.log(err)
