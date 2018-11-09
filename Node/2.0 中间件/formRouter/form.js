@@ -6,5 +6,3 @@ const router = require('./router.js')
 app.use(router)
 
 app.listen(3000, () => console.log('Example app listening on port 3000!'))
-
-
